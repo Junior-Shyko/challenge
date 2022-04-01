@@ -16,7 +16,7 @@
                 </p>
             </div>
             <div class="col-6">
-                <a href="#" class="btn btn-primary">Criar Matéria</a>
+                <a href="{{url('criar-disciplina')}}" class="btn btn-secondary" title="Cria uma nova matéria">Criar Matéria</a>
             </div>
         </div>
         
