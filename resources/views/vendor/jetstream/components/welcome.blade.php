@@ -8,9 +8,17 @@
     </div>
 
     <div class="mt-6 text-gray-500">
-        <p>
-            MATÉRIAS SEM FACULDADE
-        </p>
+        
+        <div class="row">
+            <div class="col-6">
+                <p>
+                    MATÉRIAS SEM FACULDADE
+                </p>
+            </div>
+            <div class="col-6">
+                <a href="#" class="btn btn-primary">Criar Matéria</a>
+            </div>
+        </div>
         
     </div>
 

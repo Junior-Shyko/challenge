@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('criar-disciplina', [App\Http\Livewire\Discipline\Create::class, '__invoke'])->name('twcriar-disciplinaeets');
 
 Route::get('/', function () {
     return view('welcome');
