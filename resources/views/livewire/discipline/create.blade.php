@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             @endif
-            <div class="col-12 col-lg-4 p-2">
+            <div class="col-12 col-lg-4">
                 <ul class="list-group">
                     <li class="list-group-item active">Dados da Matéria</li>
                     <li class="list-group-item">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                       <label for="">Descrição:</label>
-                      <textarea name="" class="form-control" wire:model='descriptionDis' cols="20" rows="8"></textarea>
+                      <textarea class="form-control" wire:model='descriptionDis' cols="20" rows="8"></textarea>
                       <small id="emailHelp" class="form-text text-muted">Uma descrição sobre a matéria</small>
                     </div>
                     <div class="form-group">

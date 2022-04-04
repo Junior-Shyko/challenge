@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('criar-disciplina', [App\Http\Livewire\Discipline\Create::class, '__invoke'])->name('twcriar-disciplinaeets');
+Route::get('materia/{id}', [App\Http\Livewire\Discipline\Edit::class, '__invoke']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get(
+        'dashboard',
+        [WelcomeController::class, 'index']
+    )->name('dashboard');
 });

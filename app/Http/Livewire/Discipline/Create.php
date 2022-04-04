@@ -30,13 +30,19 @@ class Create extends Component
 
     public function store()
     {
+        $validatedData = $this->validate();
         try {
-           
-            $validatedData = $this->validate();
+        //    dd($this);
             
-            Discipline::create($validatedData);
+            $insert = [
+                'name' => $this->nameDiscipline,
+                'description' => $this->descriptionDis,
+                'active' => true,
+                'type' => $this->typeDiscipline  
+            ];
+            Discipline::create($insert);
             $this->reset();
-            $this->dispatchBrowserEvent('toastr:success', ['message' => 'Requerimento cadastrado com sucesso']);
+            $this->dispatchBrowserEvent('toastr:success', ['message' => 'Matéria cadastrada com sucesso']);
         } catch (\Throwable $th) {
             $this->dispatchBrowserEvent('toastr:error', ['message' => 'Ocorreu um erro inesperado']);
         }
