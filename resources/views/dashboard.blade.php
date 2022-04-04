@@ -45,9 +45,12 @@
                                             <p class="card-text">
                                                 {{ substr($item->description,0,60) }}
                                             </p>
-                                            <a href="{{url('materia/'.$item->id)}}" title="Todos os datalhes dessa matéria" >
+                                            <div>
+                                                @livewire('discipline.edit', ['discipline' => $item] , key($item->id))
+                                            </div>
+                                            {{-- <a href="{{url('materia/'.$item->id)}}" title="Todos os datalhes dessa matéria" >
                                                 Detalhes
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>

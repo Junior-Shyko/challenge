@@ -48,4 +48,9 @@ class Create extends Component
         }
         
     }
+
+    public function update()
+    {
+        dd($this);
+    }
 }
