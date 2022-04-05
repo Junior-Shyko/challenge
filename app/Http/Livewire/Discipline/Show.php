@@ -29,15 +29,13 @@ class Show extends Component
     ];
 
     public bool $modalUpdating;
+    public bool $modalDelete;
 
     public function update()
     {
-        // $validatedDate = $this->validate([
-        //     'descriptionDis.required' => 'O Campo de descrição é obrigatório',
-        // ]);
-        // session()->flash('message', $validatedDate);
-       //dd($this->idDiscipline);
+        //VALIDANDO ERROS
         $validatedData = $this->validate();
+        //CONVERTENDO VALORES
         switch ($this->typeDiscipline) {
             case 'Personalizado':
                 $this->typeDiscipline = 'personalized';
@@ -47,12 +45,14 @@ class Show extends Component
                 break;
         }
         try {
+            //ARRAY COM OS VALORES ATUALIZADOS
             $update = [
                 'name' => $this->nameDiscipline,
                 'description' => $this->descriptionDis,
                 'type' => $this->typeDiscipline,
                 'active' => $this->activeDiscipline
             ];
+            //UPDATE
             Discipline::where('id',$this->idDiscipline)->update($update);            
             $this->dispatchBrowserEvent('toastr:success', ['message' => 'Matéria alterada com sucesso']);
         } catch (\Exception $th) {
@@ -61,16 +61,13 @@ class Show extends Component
       
     }
 
-    // public function mount(Discipline $discipline)
-    // {
-    //     $this->discipline = $discipline;
-    // }
-
     public function edit(Discipline $discipline)
     {
+        //PROPRIEDADES RECEBENDO VALOR DO OBJETO
         $this->idDiscipline = $discipline->id;
         $this->nameDiscipline = $discipline->name;
         $this->descriptionDis = $discipline->description;
+         //CONVERTENDO VALORES
         switch ($discipline->type) {
             case 'personalized':
                 $this->typeDiscipline = 'Personalizado';
@@ -79,25 +76,29 @@ class Show extends Component
                 $this->typeDiscipline = 'Geral';
                 break;
         }
-        // dd($this);
+        // MODAL
         $this->modalUpdating = true;
-        //dd($this->discipline->name);
     }
 
-    public function hideModalUp()
+    public function showModalDelete(Discipline $discipline)
     {
-        $this->modalUpdating = false;
-    }    
+        $this->idDiscipline = $discipline->id;
+        $this->modalDelete = true;
+    }
+
+    public function deleteDiscipline(Discipline $discipline)
+    {
+        try {
+            Discipline::where('id',$discipline->id)->delete();            
+            $this->dispatchBrowserEvent('toastr:success', ['message' => 'Matéria alterada com sucesso']);
+            $this->modalDelete = false;
+        } catch (\Throwable $th) {
+            $this->dispatchBrowserEvent('toastr:error', ['message' => 'Ocorreu um erro inesperado: '.$th->getMessage()]);
+        }
+    }
     
-    public function showModalUp()
-    {
-        $this->modalUpdating = true;
-    }
-
-
     public function render()
     {
-     
         $this->discipline = Discipline::all();
 
         return view('livewire.discipline.show');
