@@ -18,44 +18,4 @@
     </div>
 </div>
 {{-- MODAL PARA EDIÇÃO DE MATERIA --}}
-<x-jet-dialog-modal wire:model="modalUpdating">
-    <x-slot name="title">
-        Delete Account
-    </x-slot>
 
-    <x-slot name="content">
-
-            <div class="form-group">
-              <label for="">Nome: {{$discipline->name}}</label>
-              <x-jet-input type="text" class="form-control" wire:change="up($event)" value="{{$discipline->name}}" />
-              {{-- <input type="text" class="" wire:model.defer='discipline.name' placeholder="Nome da matéria"> --}}
-            </div>
-            <div class="form-group">
-              <label for="">Descrição:</label>
-              <textarea class="form-control" wire:model.defer='discipline.description' cols="20" rows="8"></textarea>
-              <small id="emailHelp" class="form-text text-muted">Uma descrição sobre a matéria</small>
-            </div>
-            <div class="form-group">
-                <label for="">Tipo:</label>
-                <select wire:model.defer='discipline.type' class="form-control">
-                    <option value="0">--Selecione--</option>
-                    <option value="personalized">Personalizada</option>
-                    <option value="general">Geral</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">
-               <i class="fa fa-save"></i> Cadastrar
-            </button>
-        </form>
-    </x-slot>
-
-    <x-slot name="footer">
-        <x-jet-secondary-button wire:click="$toggle('modalUpdating')" wire:loading.attr="disabled">
-            Nevermind
-        </x-jet-secondary-button>
-
-        <x-jet-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
-            Delete Account
-        </x-jet-danger-button>
-    </x-slot>
-</x-jet-dialog-modal>

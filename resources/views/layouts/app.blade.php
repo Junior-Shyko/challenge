@@ -77,11 +77,11 @@
                 toastr.info(event.detail.message);
             }) 
             window.addEventListener('toastr:success', event => {
-                toastr.info(event.detail.message);
+                toastr.success(event.detail.message);
             })
             window.addEventListener('toastr:error', event => {
                 console.log(event.detail.message);
-                //toastr.error(event.datail.message);
+                toastr.error(event.detail.message);
             })
         </script>
 

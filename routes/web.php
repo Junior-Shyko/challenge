@@ -27,6 +27,6 @@ Route::middleware([
 ])->group(function () {
     Route::get(
         'dashboard',
-        [WelcomeController::class, 'index']
+        [App\Http\Livewire\Discipline\Show::class, '__invoke']
     )->name('dashboard');
 });
