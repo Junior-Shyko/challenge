@@ -36,7 +36,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main>   
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2 py-12">                            
