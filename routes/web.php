@@ -28,5 +28,9 @@ Route::middleware([
     Route::get(
         'dashboard',
         [App\Http\Livewire\Discipline\Show::class, '__invoke']
-    )->name('dashboard');
+    )->name('dashboard');    
+    Route::get(
+        'gerenciar-disciplina',
+        [App\Http\Livewire\Manager\Show::class, '__invoke']
+    )->name('gerenciar-disciplina');
 });

@@ -37,7 +37,24 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2 py-12">                            
+                                <div class="bg-white overflow-hidden">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Home</li>
+                                        <li class="list-group-item">Cadastrar</li>
+                                        <li class="list-group-item">Gerenciar</li>
+                                        <li class="list-group-item">Pesquisar</li>
+                                        <li class="list-group-item list-group-item-dark">Sair</li>
+                                      </ul>
+                                </div>
+                        </div>
+                        <div class="col-lg-10">
+                            {{ $slot }}
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
 
