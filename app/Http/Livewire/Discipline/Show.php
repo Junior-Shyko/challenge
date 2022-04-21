@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\Discipline;
 
-use App\Models\Discipline;
+use App\Models\Profile;
 use Livewire\Component;
+use App\Models\Discipline;
 
 class Show extends Component
 {

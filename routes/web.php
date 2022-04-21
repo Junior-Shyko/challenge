@@ -15,9 +15,9 @@ use App\Http\Controllers\WelcomeController;
 Route::get('criar-disciplina', [App\Http\Livewire\Discipline\Create::class, '__invoke'])->name('twcriar-disciplinaeets');
 Route::get('materia/{id}', [App\Http\Livewire\Discipline\Edit::class, '__invoke']);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect('login');
+});
 
 
 Route::middleware([
